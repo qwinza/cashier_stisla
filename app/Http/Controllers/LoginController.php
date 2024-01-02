@@ -25,12 +25,12 @@ class LoginController extends Controller
         $user = User::firstWhere('username', $request->username);
 
         if (is_null($user) || !Hash::check($request->password, $user->password)) {
-            return redirect()->route('login')->withErrors(['login' => 'Credentials are not valid.']);
+            return redirect()->route('login')->withErrors(['login' => 'Email atau Passoword Tidak Valid']);
         }
 
         Auth::login($user);
 
-        return redirect()->route('dashboard');
+        return redirect()->route('cashier');
     }
 
     public function logout(Request $request)

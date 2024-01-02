@@ -65,9 +65,13 @@
                                   </div>
 
                                   <div class="form-group">
-                                      <button type="submit" class="btn btn-primary">
+                                      <button type="submit" class="btn btn-primary w-100">
                                           {{ __('Register') }}
                                       </button>
+                                  </div>
+
+                                  <div class="mt-5 text-muted text-center">
+                                    have an account? <a href="{{ route('login') }}">Sign In</a>
                                   </div>
                               </form>
                           </div>

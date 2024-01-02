@@ -1,26 +1,21 @@
 @extends('layouts.master')
-<div>
+
+@section('content')
+    @include('partials.navbar')
     <div class="card">
         <div class="card-header">
             <h4>Input Product</h4>
         </div>
         <div class="card-body">
-            <form class="form-inline">
-                <label class="sr-only" for="inlineFormInputName2">Name Product</label>
-                <input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="Jane Doe">
-                <select class="form-control">
-                    <option>Option 1</option>
-                    <option>Option 2</option>
-                    <option>Option 3</option>
+            <form action="#" method="POST" class="form-inline">
+                <input type="text" name="productName" class="form-control mb-2 mr-sm-2" placeholder="Product Name">
+                <select name="selectedProduct" class="form-control">
+                    <option value="">Select Product</option>
                 </select>
-                <div class="input-group mb-2 mr-sm-2">
-                    <input type="text" class="form-control" id="quantity" placeholder="Quantity">
-                </div>
-                <div class="input-group mb-2 mr-sm-2">
-                    <input type="text" class="form-control" id="inlineFormInputGroupUsername2" placeholder="Username">
-                </div>
+                <input type="text" name="quantity" class="form-control mb-2 mr-sm-2" placeholder="Quantity">
+                <input type="text" name="username" class="form-control mb-2 mr-sm-2" placeholder="Username">
+                <button type="submit" class="btn btn-primary mb-2">Add Product</button>
             </form>
         </div>
     </div>
-</div>
-
+@endsection
