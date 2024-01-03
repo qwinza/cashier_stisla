@@ -13,6 +13,11 @@
                     <h4>Product Info</h4>
                 </div>
                 <div class="card-body">
+                    @if(session('success'))
+                        <div class="alert alert-success">
+                            {{ session('success') }}
+                        </div>
+                    @endif
                     <table class="table table-bordered">
                         <thead>
                             <tr>
@@ -33,6 +38,13 @@
                                     <td>
                                         <a href="{{ route('products.edit', $product->id) }}"
                                             class="btn btn-primary">Edit</a>
+                                        <form action="{{ route('products.destroy', $product->id) }}" method="POST"
+                                            class="d-inline">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-danger"
+                                                onclick="return confirm('Are you sure?')">Delete</button>
+                                        </form>
                                     </td>
                                 </tr>
                             @endforeach
