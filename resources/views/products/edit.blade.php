@@ -1,9 +1,10 @@
 @extends('layouts.master')
 
 @section('content')
-    <div class="container mt-4">
+    @include('partials.navbar')
+    <div class="main-content mt-5">
         <div class="row">
-            <div class="col-md-8 offset-md-2">
+            <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">
                         Edit Product

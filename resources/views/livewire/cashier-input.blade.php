@@ -1,21 +1,29 @@
-@extends('layouts.master')
-
-@section('content')
-    @include('partials.navbar')
-    <div class="card">
-        <div class="card-header">
-            <h4>Input Product</h4>
-        </div>
-        <div class="card-body">
-            <form action="#" method="POST" class="form-inline">
-                <input type="text" name="productName" class="form-control mb-2 mr-sm-2" placeholder="Product Name">
-                <select name="selectedProduct" class="form-control">
-                    <option value="">Select Product</option>
-                </select>
-                <input type="text" name="quantity" class="form-control mb-2 mr-sm-2" placeholder="Quantity">
-                <input type="text" name="username" class="form-control mb-2 mr-sm-2" placeholder="Username">
-                <button type="submit" class="btn btn-primary mb-2">Add Product</button>
-            </form>
-        </div>
+<div class="card mt-3">
+    <div class="card-header">
+        <h4>Cashier Input</h4>
     </div>
-@endsection
+    <div class="card-body">
+        <form wire:submit.prevent="addProduct" class="row">
+            <div class="form-group col-md-3">
+                <input wire:model="productName" type="text" name="productName" class="form-control" placeholder="Customer Name">
+            </div>
+            <div class="form-group col-md-3">
+                <select wire:model="selectedProduct" class="form-control">
+                    <option value="">Select Product</option>
+                    @foreach($products as $product)
+                        <option value="{{ $product->id }}">{{ $product->name }}</option>
+                    @endforeach
+                </select>
+            </div>
+            <div class="form-group col-md-3">
+                <input wire:model="quantity" type="number" name="quantity" class="form-control" placeholder="Quantity">
+            </div>
+            <div class="form-group col-md-3">
+                <input wire:model="price" type="text" name="price" class="form-control" placeholder="Price" readonly>
+            </div>
+            <div class="form-group col-md-12">
+                <button type="submit" class="btn btn-primary">Add Product</button>
+            </div>
+        </form>
+    </div>
+</div>

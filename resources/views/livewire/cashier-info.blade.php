@@ -1,33 +1,35 @@
-@extends('layouts.master')
-
-@section('content')
-    @include('partials.navbar')
-
-    <div>
-        <div class="col-md-4">
-            <div class="card">
-                <div class="card-header">
-                    <h4>Transaction Summary</h4>
-                </div>
-                <div class="card-body">
-                    <div class="form-group">
-                        <label for="total">Total:</label>
-                        <input type="text" class="form-control" id="total" readonly>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="inputMoney">Input Money:</label>
-                        <input wire:model="inputMoney" type="text" class="form-control" id="inputMoney">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="change">Change:</label>
-                        <input type="text" class="form-control" id="change" readonly>
-                    </div>
-
-                    <button wire:click="processTransaction" class="btn btn-primary">Process Transaction</button>
-                </div>
-            </div>
+<div class="col-md-12">
+    <div class="card mt-3">
+        <div class="card-header">
+            <h4>Cashier Info</h4>
+        </div>
+        <div class="card-body">
+            <table class="table table-bordered font-weight-bold">
+                <thead>
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Customer</th>
+                        <th scope="col">Name Product</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Qty</th>
+                        <th scope="col">Subtotal</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($products as $product)
+                        @for ($i = 1; $i <= 5; $i++)
+                            <tr>
+                                <th scope="row">{{ $product['id'] }}</th>
+                                <td>{{ $productName }}</td>
+                                <td>{{ $product['name'] }}</td>
+                                <td>{{ $product['price'] }}</td>
+                                <td>{{ $product['quantity'] }}</td>
+                                <td>{{ $product['subtotal'] }}</td>
+                            </tr>
+                        @endfor
+                    @endforeach
+                </tbody>
+            </table>
         </div>
     </div>
-@endsection
+</div>

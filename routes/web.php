@@ -6,11 +6,6 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\CashierController;
 use App\Http\Controllers\ProductController;
 
-use App\Http\Livewire\CashierInput;
-use App\Http\Livewire\CashierInfo;
-use App\Http\Livewire\CashierLog;
-
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
